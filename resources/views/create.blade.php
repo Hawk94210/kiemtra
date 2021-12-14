@@ -14,9 +14,9 @@
 
 <body>
   <div class="container">
-    <h3>Thêm mới nhân viên</h3>
+    <h3 style="text-align:center">Thêm mới nhân viên</h3>
   </div>
-  <div class="conatiner">
+  <div class="container">
     <form action="" method="POST">
       @csrf
       <div class="row container">

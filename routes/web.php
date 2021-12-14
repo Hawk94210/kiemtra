@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmployeeController;
 use App\Models\Category;
+use App\Models\Employee;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +32,5 @@ Route::post('category',[CategoryController::class,'store'])->name('store');
 
 Route::get('catedelete/{id}',[CategoryController::class,'destroy'])->name('catedelete');
 
-Route::post('/search', [EmployeeController::class, 'search']);
+Route::get('/search/',[EmployeeController::class,'search'])->name('search');
 

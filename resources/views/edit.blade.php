@@ -13,81 +13,81 @@
 </head>
 
 <body>
-  <div class="container">
-    <h3>Thêm mới nhân viên</h3>
-  </div>
-  <div class="conatiner">
-    <form action="" method="POST">
-      @csrf
-      <div class="row container">
-        <div class="form-group col-sm-6">
-          <div class="form-group">
-            <label>Mã nhân viên</label>
-            <input type="text" class="form-control" style="width: 80%">
+
+    <div class="container">
+      <h3 style="text-align:center">Thêm mới nhân viên</h3>
+
+      <form action="" method="POST">
+        @csrf
+        <div class="row container">
+          <div class="form-group col-sm-6">
+            <div class="form-group">
+              <label>Mã nhân viên</label>
+              <input type="text" class="form-control" style="width: 80%">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Chọn nhóm nhân viên</label>
+
+              <select class="form-control" style="width: 80%">
+                @foreach ($categorys as $category)
+                <option value="category->id">{{ $category->name }}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Họ và tên</label>
+              <input type="text" name="name" value="{{ $employee->name }}" class="form-control" style="width: 80%">
+              @error('name')
+              <p class="text text-danger">{{ $message }}</p>
+              @enderror
+            </div>
+            <div class="form-group">
+              <label>Ngày sinh</label>
+              <input type="date" name="dob" value="{{ $employee->dob }}" class="form-control" style="width: 80%">
+            </div>
+            <div class="form-check">
+              <label for="exampleFormControlSelect1">Giới tính</label>
+              <select class="form-control" name="gender" style="width: 80%">
+                <option>Nam</option>
+                <option>Nữ</option>
+              </select>
+              @error('gender')
+              <p class="text text-danger">{{ $message }}</p>
+              @enderror
+            </div>
           </div>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Chọn nhóm nhân viên</label>
-            
-            <select class="form-control" style="width: 80%">
-              @foreach ($categorys as $category)
-              <option value="category->id">{{ $category->name }}</option>
-              @endforeach
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Họ và tên</label>
-            <input type="text" name="name" value="{{ $employee->name }}" class="form-control" style="width: 80%">
-            @error('name')
-                <p class="text text-danger">{{ $message }}</p>
-            @enderror
-          </div>
-          <div class="form-group">
-            <label>Ngày sinh</label>
-            <input type="date" name="dob" value="{{ $employee->dob }}" class="form-control" style="width: 80%">
-          </div>
-          <div class="form-check">
-            <label for="exampleFormControlSelect1">Giới tính</label>
-            <select class="form-control" name="gender" style="width: 80%">
-              <option>Nam</option>
-              <option>Nữ</option>
-            </select>
-            @error('gender')
-                <p class="text text-danger">{{ $message }}</p>
-            @enderror
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="">Số điện thoại</label>
+              <input type="text" name="phone" value="{{ $employee->phone }}" class="form-control" style="width: 80%">
+              @error('phone')
+              <p class="text text-danger">{{ $message }}</p>
+              @enderror
+            </div>
+            <div class="form-group">
+              <label for="">Số CMND</label>
+              <input type="text" name="CMND" value="{{ $employee->CMND }}" class="form-control" style="width: 80%">
+            </div>
+            <div class="form-group">
+              <label for="">Email</label>
+              <input type="text" name="email" value="{{ $employee->email }}" class="form-control" style="width: 80%">
+              @error('email')
+              <p class="text text-danger">{{ $message }}</p>
+              @enderror
+            </div>
+            <label for="">Địa chỉ</label>
+            <div class="form-group">
+              <textarea name="address" id="" cols="55" rows="3">{{ $employee->address }}"</textarea>
+              @error('address')
+              <p class="text text-danger">{{ $message }}</p>
+              @enderror
+            </div>
+            <button type="submit" class="btn btn-primary" style="text-align-last: right">Thêm mới</button>
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="">Số điện thoại</label>
-            <input type="text" name="phone" value="{{ $employee->phone }}" class="form-control" style="width: 80%">
-            @error('phone')
-                <p class="text text-danger">{{ $message }}</p>
-            @enderror
-          </div>
-          <div class="form-group">
-            <label for="">Số CMND</label>
-            <input type="text" name="CMND" value="{{ $employee->CMND }}" class="form-control" style="width: 80%">
-          </div>
-          <div class="form-group">
-            <label for="">Email</label>
-            <input type="text" name="email" value="{{ $employee->email }}" class="form-control" style="width: 80%">
-            @error('email')
-                <p class="text text-danger">{{ $message }}</p>
-            @enderror
-          </div>
-          <label for="">Địa chỉ</label>
-          <div class="form-group">
-            <textarea name="address" id="" cols="55" rows="3">{{ $employee->address }}"</textarea>
-            @error('address')
-                <p class="text text-danger">{{ $message }}</p>
-            @enderror
-          </div>
-          <button type="submit" class="btn btn-primary" style="text-align-last: right">Thêm mới</button>
-        </div>
-      </div>
-    </form>
-  </div>
-  
+      </form>
+    </div>
+
 
 
 

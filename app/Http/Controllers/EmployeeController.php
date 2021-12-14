@@ -139,8 +139,14 @@ class EmployeeController extends Controller
     
     public function search(Request $request)
     {
-        $key = $request->q;
-        $arr = Employee::where('name','like','%'.$key.'%')->get();
-        return route('show.index',compact('arr'));
+        $search = $request->input('search');
+
+        // Search in the title and body columns from the posts table
+        $posts = Employee::query()
+            ->where('name', 'LIKE', "%{$search}%")
+            ->get();
+    
+        // Return the search view with the resluts compacted
+        dd($posts);
     }
 }
